@@ -53,7 +53,7 @@ endforeach()
 
 message(STATUS "CMAKE_Fortran_FLAGS: ${CMAKE_Fortran_FLAGS}")
 
-add_executable(test_fcl_search fcl_kinds.f90 fcl_search.f90 fcl_test.f90 test_fcl_search.f90)
+add_executable(test_fcl_search fcl_kinds.f90 fcl_search.f90 fcl_test.F90 test_fcl_search.f90)
 add_executable(bench_fcl_search fcl_search.f90 bench_fcl_search.f90)
 
-add_executable(test_fcl_vecmath_3d fcl_kinds.f90 fcl_vecmath_vector_3d.F90 fcl_test.f90 test_fcl_vecmath_3d.f90)
+add_executable(test_fcl_vecmath_3d fcl_kinds.f90 fcl_vecmath_vector_3d.F90 fcl_test.F90 test_fcl_vecmath_3d.f90)

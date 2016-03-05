@@ -18,9 +18,10 @@ module fcl_lapack
 
 contains
 
-  subroutine fcl_lapack_dsyev(matrix, eigenvalues)
+  subroutine fcl_lapack_dsyev(matrix, eigenvalues, compute_eigenvectors)
     real(kind=d), dimension(:, :), intent(inout) :: matrix
     real(kind=d), dimension(size(matrix,1)), intent(inout) :: eigenvalues
+    logical, intent(in) :: compute_eigenvectors 
 
     ! integer, parameter :: lwmax = 1000
 
@@ -29,12 +30,18 @@ contains
     real(kind=d), dimension(:), allocatable :: work
     integer :: allocation_status
     character(len=256) :: error_message
+    character(len=1) :: jobz
 
     n = size(matrix,1)
+    if (compute_eigenvectors) then
+      jobz = "v"
+    else
+      jobz = "n"
+    end if
     
     ! Query the optimal workspace.
     lwork = -1
-    call dsyev('n', 'u', n, matrix, n, eigenvalues, work_opt_size, lwork, info)
+    call dsyev(jobz, 'u', n, matrix, n, eigenvalues, work_opt_size, lwork, info)
     ! print *, "The optimal size of the WORK array:", int(work_opt_size(1))
     ! lwork = min(lwmax, int(work_opt_size(1)))
     lwork = int(work_opt_size(1))
@@ -45,7 +52,7 @@ contains
     end if
 
     ! Solve the eigenproblem.
-    call dsyev('n', 'u', n, matrix, n, eigenvalues, work, lwork, info)
+    call dsyev(jobz, 'u', n, matrix, n, eigenvalues, work, lwork, info)
     if (info < 0) then
       print *, info, "-th argument in a call to dsyev() had an illegal value"
       stop

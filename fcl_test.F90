@@ -26,7 +26,7 @@ contains
 
 #define SPECIFIC_PROCEDURE fcl_test_mod_assert_equal_integer
 #define SPECIFIC_TYPE integer
-#include "fcl_test_mod_assert_equal.f90"
+#include "fcl_test/assert_equal.f90"
 #undef SPECIFIC_PROCEDURE
 #undef SPECIFIC_TYPE
 
@@ -38,7 +38,7 @@ contains
 
 #define SPECIFIC_PROCEDURE fcl_test_mod_assert_equal_logical
 #define SPECIFIC_TYPE logical
-#include "fcl_test_mod_assert_equal.f90"
+#include "fcl_test/assert_equal.f90"
 #undef SPECIFIC_PROCEDURE
 #undef SPECIFIC_TYPE
 
@@ -48,13 +48,13 @@ contains
 
 #define SPECIFIC_PROCEDURE fcl_test_mod_assert_equal_real_s
 #define REALKIND s
-#include "fcl_test_mod_assert_equal_real.f90"
+#include "fcl_test/assert_equal_real.f90"
 #undef SPECIFIC_PROCEDURE
 #undef REALKIND
 
 #define SPECIFIC_PROCEDURE fcl_test_mod_assert_equal_real_d
 #define REALKIND d
-#include "fcl_test_mod_assert_equal_real.f90"
+#include "fcl_test/assert_equal_real.f90"
 #undef SPECIFIC_PROCEDURE
 #undef REALKIND
 

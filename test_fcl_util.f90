@@ -1,11 +1,12 @@
 program test_fcl_util
 
+  use iso_fortran_env
   use fcl_kinds
   use fcl_util
 
   implicit none
   
-  real(kind=d), dimension(8, 9) :: array
+  real(kind=d), dimension(3, 4) :: array
   character(len=*), parameter :: fmt = "f5.1"
   
   integer :: rows, columns, i, j
@@ -29,9 +30,13 @@ program test_fcl_util
     end do
   end do
   
-  call fcl_util_pretty_print(array, fmt, columns, .true.)
-  call fcl_util_pretty_print(array, fmt, columns, .false.)
-  call fcl_util_pretty_print(array, fmt, 5, .true.)
-  call fcl_util_pretty_print(array, fmt, 5, .false.)
+  call fcl_util_pretty_print(output_unit, array, fmt, columns, headers=.true., decorate=.true.)
+  call fcl_util_pretty_print(output_unit, array, fmt, columns, headers=.true., decorate=.false.)
+
+  call fcl_util_pretty_print(output_unit, array, fmt, columns, headers=.false., decorate=.true.)
+  call fcl_util_pretty_print(output_unit, array, fmt, columns, headers=.false., decorate=.false.)
+
+  ! call fcl_util_pretty_print(output_unit, array, fmt, 5, headers=.true., decorate=.true.)
+  ! call fcl_util_pretty_print(output_unit, array, fmt, 5, headers=.true., decorate=.false.)
 
 end program test_fcl_util

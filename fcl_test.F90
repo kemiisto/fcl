@@ -14,8 +14,9 @@ module fcl_test
   end interface fcl_test_mod_assert_equal
 
   interface fcl_test_mod_assert_equal_real
-    module procedure fcl_test_mod_assert_equal_real_s
-    module procedure fcl_test_mod_assert_equal_real_d
+    module procedure fcl_test_mod_assert_equal_real_sp
+    module procedure fcl_test_mod_assert_equal_real_dp
+    module procedure fcl_test_mod_assert_equal_real_qp
   end interface fcl_test_mod_assert_equal_real
 
 contains
@@ -46,14 +47,20 @@ contains
 
 ! ------------------------------------------------------------------------------
 
-#define SPECIFIC_PROCEDURE fcl_test_mod_assert_equal_real_s
-#define REALKIND s
+#define SPECIFIC_PROCEDURE fcl_test_mod_assert_equal_real_sp
+#define REALKIND sp
 #include "fcl_test/assert_equal_real.f90"
 #undef SPECIFIC_PROCEDURE
 #undef REALKIND
 
-#define SPECIFIC_PROCEDURE fcl_test_mod_assert_equal_real_d
-#define REALKIND d
+#define SPECIFIC_PROCEDURE fcl_test_mod_assert_equal_real_dp
+#define REALKIND dp
+#include "fcl_test/assert_equal_real.f90"
+#undef SPECIFIC_PROCEDURE
+#undef REALKIND
+
+#define SPECIFIC_PROCEDURE fcl_test_mod_assert_equal_real_qp
+#define REALKIND qp
 #include "fcl_test/assert_equal_real.f90"
 #undef SPECIFIC_PROCEDURE
 #undef REALKIND

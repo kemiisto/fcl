@@ -6,7 +6,7 @@ program test_fcl_util
 
   implicit none
   
-  real(kind=d), dimension(3, 4) :: array
+  real(kind=dp), dimension(3, 4) :: array
   character(len=*), parameter :: fmt = "f5.1"
   
   integer :: rows, columns, i, j
@@ -14,19 +14,19 @@ program test_fcl_util
   rows = size(array, 1)
   columns = size(array, 2)
   
-!   array = transpose(           &
-!     reshape(                   &
-!       [                        &
-!         1.1_d, 1.2_d, 1.3_d,   &
-!         2.1_d, 2.2_d, 2.3_d    &
-!       ],                       &
-!       [columns, rows]          &
-!     )                          &
+!   array = transpose(            &
+!     reshape(                    &
+!       [                         &
+!         1.1_dp, 1.2_dp, 1.3_dp, &
+!         2.1_dp, 2.2_dp, 2.3_dp  &
+!       ],                        &
+!       [columns, rows]           &
+!     )                           &
 !   )
   
   do j = 1, columns
     do i = 1, rows
-      array(i, j) = i + j * 0.1_d
+      array(i, j) = i + j * 0.1_dp
     end do
   end do
   

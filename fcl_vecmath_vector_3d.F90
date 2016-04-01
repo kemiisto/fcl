@@ -2,7 +2,7 @@ module fcl_vecmath_vector_3d
 
 #define TYPE_NAME fcl_vecmath_mod_vector3d
 #define COMPONENTS_TYPE real
-#define COMPONENTS_KIND d
+#define COMPONENTS_KIND dp
 #define VECTOR_DIMENSION 3
 
 #include "fcl_vecmath_vector.f90"

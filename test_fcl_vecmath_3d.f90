@@ -6,21 +6,21 @@ program test_fcl_vecmath_3d
 
   implicit none
 
-  real(kind=d), parameter :: tolerance = 0.001_d
+  real(kind=dp), parameter :: tolerance = 0.001_dp
 
   type(fcl_vecmath_mod_vector3d) :: zero, &
     e_i, e_j, e_k,                    &
     minus_e_i, minus_e_j, minus_e_k,  &
     v
 
-        zero = fcl_vecmath_mod_vector3d( [ 0.0_d,  0.0_d,  0.0_d] )
-         e_i = fcl_vecmath_mod_vector3d( [ 1.0_d,  0.0_d,  0.0_d] )
-         e_j = fcl_vecmath_mod_vector3d( [ 0.0_d,  1.0_d,  0.0_d] )
-         e_k = fcl_vecmath_mod_vector3d( [ 0.0_d,  0.0_d,  1.0_d] )
-   minus_e_i = fcl_vecmath_mod_vector3d( [-1.0_d,  0.0_d,  0.0_d] )
-   minus_e_j = fcl_vecmath_mod_vector3d( [ 0.0_d, -1.0_d,  0.0_d] )
-   minus_e_k = fcl_vecmath_mod_vector3d( [ 0.0_d,  0.0_d, -1.0_d] )
-           v = fcl_vecmath_mod_vector3d( [ 2.0_d,  3.0_d,  6.0_d] )
+        zero = fcl_vecmath_mod_vector3d( [ 0.0_dp,  0.0_dp,  0.0_dp] )
+         e_i = fcl_vecmath_mod_vector3d( [ 1.0_dp,  0.0_dp,  0.0_dp] )
+         e_j = fcl_vecmath_mod_vector3d( [ 0.0_dp,  1.0_dp,  0.0_dp] )
+         e_k = fcl_vecmath_mod_vector3d( [ 0.0_dp,  0.0_dp,  1.0_dp] )
+   minus_e_i = fcl_vecmath_mod_vector3d( [-1.0_dp,  0.0_dp,  0.0_dp] )
+   minus_e_j = fcl_vecmath_mod_vector3d( [ 0.0_dp, -1.0_dp,  0.0_dp] )
+   minus_e_k = fcl_vecmath_mod_vector3d( [ 0.0_dp,  0.0_dp, -1.0_dp] )
+           v = fcl_vecmath_mod_vector3d( [ 2.0_dp,  3.0_dp,  6.0_dp] )
 
   print *, "Testing..."
 
@@ -40,28 +40,28 @@ contains
 
   subroutine test_vector3d_norm()
     call fcl_test_mod_assert_equal_real( &
-      zero%norm(), 0.0_d, tolerance, "zero" &
+      zero%norm(), 0.0_dp, tolerance, "zero" &
     )
     call fcl_test_mod_assert_equal_real( &
-      e_i%norm(), 1.0_d, tolerance, "x" &
+      e_i%norm(), 1.0_dp, tolerance, "x" &
     )
     call fcl_test_mod_assert_equal_real( &
-      e_j%norm(), 1.0_d, tolerance, "y" &
+      e_j%norm(), 1.0_dp, tolerance, "y" &
     )
     call fcl_test_mod_assert_equal_real( &
-      e_k%norm(), 1.0_d, tolerance, "z" &
+      e_k%norm(), 1.0_dp, tolerance, "z" &
     )
     call fcl_test_mod_assert_equal_real( &
-      minus_e_i%norm(), 1.0_d, tolerance,   "-x" &
+      minus_e_i%norm(), 1.0_dp, tolerance,   "-x" &
     )
     call fcl_test_mod_assert_equal_real( &
-      minus_e_j%norm(), 1.0_d, tolerance,   "-y" &
+      minus_e_j%norm(), 1.0_dp, tolerance,   "-y" &
     )
     call fcl_test_mod_assert_equal_real( &
-      minus_e_k%norm(), 1.0_d, tolerance,   "-z" &
+      minus_e_k%norm(), 1.0_dp, tolerance,   "-z" &
     )
     call fcl_test_mod_assert_equal_real( &
-      v%norm(), 7.0_d, tolerance, "xyz" &
+      v%norm(), 7.0_dp, tolerance, "xyz" &
     )
   end subroutine test_vector3d_norm
 
@@ -98,37 +98,37 @@ contains
 
     result = e_i + e_i
     call fcl_test_mod_assert_equal( &
-      result%is_equal(fcl_vecmath_mod_vector3d([2.0_d, 0.0_d, 0.0_d]), tolerance), .true., "x" &
+      result%is_equal(fcl_vecmath_mod_vector3d([2.0_dp, 0.0_dp, 0.0_dp]), tolerance), .true., "x" &
     )
 
     result = e_j + e_j
     call fcl_test_mod_assert_equal( &
-      result%is_equal(fcl_vecmath_mod_vector3d([0.0_d, 2.0_d, 0.0_d]), tolerance), .true., "y" &
+      result%is_equal(fcl_vecmath_mod_vector3d([0.0_dp, 2.0_dp, 0.0_dp]), tolerance), .true., "y" &
     )
 
     result = e_k + e_k
     call fcl_test_mod_assert_equal( &
-      result%is_equal(fcl_vecmath_mod_vector3d([0.0_d, 0.0_d, 2.0_d]), tolerance), .true., "z" &
+      result%is_equal(fcl_vecmath_mod_vector3d([0.0_dp, 0.0_dp, 2.0_dp]), tolerance), .true., "z" &
     )
 
     result = e_i + e_j
     call fcl_test_mod_assert_equal( &
-      result%is_equal(fcl_vecmath_mod_vector3d([1.0_d, 1.0_d, 0.0_d]), tolerance), .true., "xy" &
+      result%is_equal(fcl_vecmath_mod_vector3d([1.0_dp, 1.0_dp, 0.0_dp]), tolerance), .true., "xy" &
     )
 
     result = e_i + e_k
     call fcl_test_mod_assert_equal( &
-      result%is_equal(fcl_vecmath_mod_vector3d([1.0_d, 0.0_d, 1.0_d]), tolerance), .true., "xz" &
+      result%is_equal(fcl_vecmath_mod_vector3d([1.0_dp, 0.0_dp, 1.0_dp]), tolerance), .true., "xz" &
     )
 
     result = e_j + e_k
     call fcl_test_mod_assert_equal( &
-      result%is_equal(fcl_vecmath_mod_vector3d([0.0_d, 1.0_d, 1.0_d]), tolerance), .true., "yz" &
+      result%is_equal(fcl_vecmath_mod_vector3d([0.0_dp, 1.0_dp, 1.0_dp]), tolerance), .true., "yz" &
     )
 
     result = v + v
     call fcl_test_mod_assert_equal( &
-      result%is_equal(fcl_vecmath_mod_vector3d([4.0_d, 6.0_d, 12.0_d]), tolerance), .true., "xyz" &
+      result%is_equal(fcl_vecmath_mod_vector3d([4.0_dp, 6.0_dp, 12.0_dp]), tolerance), .true., "xyz" &
     )
   end subroutine test_vector3d_plus_vector3d
 

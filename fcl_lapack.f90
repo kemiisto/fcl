@@ -19,15 +19,15 @@ module fcl_lapack
 contains
 
   subroutine fcl_lapack_dsyev(matrix, eigenvalues, compute_eigenvectors)
-    real(kind=d), dimension(:, :), intent(inout) :: matrix
-    real(kind=d), dimension(size(matrix,1)), intent(inout) :: eigenvalues
+    real(kind=dp), dimension(:, :), intent(inout) :: matrix
+    real(kind=dp), dimension(size(matrix,1)), intent(inout) :: eigenvalues
     logical, intent(in) :: compute_eigenvectors 
 
     ! integer, parameter :: lwmax = 1000
 
     integer :: n, info, lwork
-    real(kind=d), dimension(1) :: work_opt_size
-    real(kind=d), dimension(:), allocatable :: work
+    real(kind=dp), dimension(1) :: work_opt_size
+    real(kind=dp), dimension(:), allocatable :: work
     integer :: allocation_status
     character(len=256) :: error_message
     character(len=1) :: jobz

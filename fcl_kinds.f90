@@ -12,17 +12,20 @@ module fcl_kinds
   !   occupies 4 bytes (32 bits) in computer memory;
   !   6 to 9 significant decimal digits precision;
   !   38 approximate exponent range.
-  ! integer, parameter :: s = ieee_selected_real_kind(6, 37)
-  integer, parameter :: s = selected_real_kind(6, 37)
-  real(kind=s), parameter :: eps_s = epsilon(1.0_s)
+  ! integer, parameter :: sp = ieee_selected_real_kind(6, 37)
+  integer, parameter :: sp = selected_real_kind(6, 37)
+  real(kind=sp), parameter :: eps_sp = epsilon(1.0_sp)
 
   ! double-precision floating-point format:
   !   "double" in ieee 754-1985, "binary64" in ieee 754-2008;
   !   occupies 8 bytes (64 bits) in computer memory;
   !   15-17 significant decimal digits precision;
   !   308 approximate exponent range.
-  ! integer, parameter :: d = ieee_selected_real_kind(15, 307)
-  integer, parameter :: d = selected_real_kind(15, 307)
-  real(kind=d), parameter :: eps_d = epsilon(1.0_d)
+  ! integer, parameter :: dp = ieee_selected_real_kind(15, 307)
+  integer, parameter :: dp = selected_real_kind(15, 307)
+  real(kind=dp), parameter :: eps_d = epsilon(1.0_dp)
+
+  integer, parameter :: qp = selected_real_kind(33, 4931)
+  real(kind=qp), parameter :: eps_qp = epsilon(1.0_qp)
   
 end module fcl_kinds

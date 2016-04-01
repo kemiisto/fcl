@@ -29,7 +29,14 @@ module fcl_constants
   real(kind=dp), parameter :: yocto = 1.0d-24
 
   ! CODATA 2014
+  real(kind=dp), parameter :: bohr_radius = 0.52917721067d-10
+  real(kind=dp), parameter :: electron_mass = 9.10938356d-31
+  real(kind=dp), parameter :: unified_atomic_mass_unit = 1.660539040d-27
+  real(kind=dp), parameter :: planck_constant = 6.626070040d-34
+  real(kind=dp), parameter :: speed_of_light_in_vacuum = 299792458._dp
+  real(kind=dp), parameter :: hartree_energy = 4.359744650d-18
+  real(kind=dp), parameter :: atomic_unit_of_force = 8.23872336d-8
 
-  real(kind=d), parameter :: pi = 3.1415926535897932_d
+  real(kind=dp), parameter :: pi = 3.1415926535897932_dp
 
 end module fcl_constants

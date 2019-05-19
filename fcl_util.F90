@@ -9,6 +9,7 @@ module fcl_util
   public :: fcl_util_pretty_print
   
   interface fcl_util_pretty_print
+    module procedure pretty_print_array_2d_int_i32
     module procedure pretty_print_array_2d_real_sp
     module procedure pretty_print_array_2d_real_dp
     module procedure pretty_print_array_2d_real_qp
@@ -16,22 +17,36 @@ module fcl_util
   
 contains
 
-#define SPECIFIC_PROCEDURE pretty_print_array_2d_real_sp
-#define REALKIND sp
-#include "fcl_util/pretty_print_array_2d_real.f90"
+#define SPECIFIC_PROCEDURE pretty_print_array_2d_int_i32
+#define SPECIFIC_TYPE integer
+#define SPECIFIC_KIND i32
+#include "fcl_util/pretty_print_array_2d.f90"
 #undef SPECIFIC_PROCEDURE
-#undef REALKIND
+#undef SPECIFIC_TYPE
+#undef SPECIFIC_KIND
+
+#define SPECIFIC_PROCEDURE pretty_print_array_2d_real_sp
+#define SPECIFIC_TYPE real
+#define SPECIFIC_KIND sp
+#include "fcl_util/pretty_print_array_2d.f90"
+#undef SPECIFIC_PROCEDURE
+#undef SPECIFIC_TYPE
+#undef SPECIFIC_KIND
 
 #define SPECIFIC_PROCEDURE pretty_print_array_2d_real_dp
-#define REALKIND dp
-#include "fcl_util/pretty_print_array_2d_real.f90"
+#define SPECIFIC_TYPE real
+#define SPECIFIC_KIND dp
+#include "fcl_util/pretty_print_array_2d.f90"
 #undef SPECIFIC_PROCEDURE
-#undef REALKIND
+#undef SPECIFIC_TYPE
+#undef SPECIFIC_KIND
 
 #define SPECIFIC_PROCEDURE pretty_print_array_2d_real_qp
-#define REALKIND qp
-#include "fcl_util/pretty_print_array_2d_real.f90"
+#define SPECIFIC_TYPE real
+#define SPECIFIC_KIND qp
+#include "fcl_util/pretty_print_array_2d.f90"
 #undef SPECIFIC_PROCEDURE
-#undef REALKIND
+#undef SPECIFIC_TYPE
+#undef SPECIFIC_KIND
   
 end module fcl_util

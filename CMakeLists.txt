@@ -26,7 +26,7 @@ if("${CMAKE_Fortran_COMPILER_ID}" STREQUAL "GNU")
   set(WARNING_FLAGS -Wall -Wextra -Werror
     # -Warray-temporaries
     -Wcharacter-truncation
-    -Wconversion-extra
+    # -Wconversion-extra
     -Wimplicit-interface
     -Wimplicit-procedure
     -Wunderflow
@@ -52,6 +52,8 @@ foreach(FLAG ${RELEASE_FLAGS})
 endforeach()
 
 message(STATUS "CMAKE_Fortran_FLAGS: ${CMAKE_Fortran_FLAGS}")
+
+add_executable(test_fcl_kinds fcl_kinds.f90 test_fcl_kinds.f90)
 
 add_executable(test_fcl_search fcl_kinds.f90 fcl_search.f90 fcl_test.F90 test_fcl_search.f90)
 add_executable(bench_fcl_search fcl_search.f90 bench_fcl_search.f90)
